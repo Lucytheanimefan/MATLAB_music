@@ -22,46 +22,47 @@ quarter_beat=0.25*one_beat;
 half_beat=0.5*one_beat;
 two_beats=2*one_beat;
 
-short_rest=Notes(0,0.009); %delete these later!
-
+h=0.3 %harmonic value
+freq_mod=-7 %frequency modulation
 %% Right hand 
 line1=[Notes(C,1.5*one_beat),Notes(Eb,half_beat),Notes(F,1.5*one_beat), Notes(G,half_beat), Notes(C,4*one_beat)];
-line2=[Notes(C,1.5*one_beat),Notes(Eb,half_beat),Notes(F,1.5*one_beat),Notes(oct1*Bb, half_beat),...
+line2=[Notes(C,1.5*one_beat),Notes(Eb,half_beat),Notes(F,1.5*one_beat),Notes(oct1*Bb, half_beat,2,h),...
     Notes(G,3*one_beat)]
-line3=[Notes(G,half_beat),Notes(oct1*Bb,half_beat),Notes(oct1*C,3*one_beat),Notes(oct1*Bb,half_beat),...
-    Notes(G,half_beat),Notes(G,4*one_beat)]
-line4=[Notes(F,1.5*one_beat),Notes(G,half_beat),Notes(D,1.5*one_beat),Notes(Eb,half_beat),Notes(C,8*one_beat)]
+line3=[Notes(G,half_beat,2,h),Notes(oct1*Bb,half_beat,2,h),Notes(oct1*C,3*one_beat,2,h*0.5,freq_mod),Notes(oct1*Bb,half_beat,2,h),...
+    Notes(G,half_beat,2,h),Notes(G,4*one_beat,0.5,h*1.1)]
+line4=[Notes(F,1.5*one_beat,2,1.1*h),Notes(G,half_beat,2,1.2*h),Notes(D,1.5*one_beat,2,1.5*h),Notes(Eb,half_beat,2,2*h),Notes(C,8*one_beat)]
+
 %% lower part right hand, left hand starts here
 % 10 & 11
-line5=[Notes(C/oct1, 1.5*one_beat),Notes(Eb/oct1,half_beat),Notes(F/oct1,1.5*one_beat),Notes(G/oct1,half_beat),...
-    Notes(C/oct1,4*one_beat)]
+line5=[Notes(C/oct1, 1.5*one_beat,2,h/3),Notes(Eb/oct1,half_beat,2,h/3),Notes(F/oct1,1.5*one_beat,2,h/3),Notes(G/oct1,half_beat,2,h/3),...
+    Notes(C/oct1,4*one_beat,2,h/3)]
 % 12 & 13
-line6=[Notes(C/oct1, 1.5*one_beat),Notes(Eb/oct1,half_beat),Notes(F/oct1,1.5*one_beat),Notes(Bb,half_beat),...
-    Notes(G/oct1,3*one_beat),Notes(G/oct1,half_beat),Notes(Bb,half_beat)]
+line6=[Notes(C/oct1, 1.5*one_beat,2,h/3),Notes(Eb/oct1,half_beat,2,h/3),Notes(F/oct1,1.5*one_beat,2,h/3),Notes(Bb,half_beat,2,h/3),...
+    Notes(G/oct1,3*one_beat,2,h/3,freq_mod),Notes(G/oct1,half_beat,2,h/3),Notes(Bb,half_beat,2,h/3)]
 % 14 & 15
-line7=[Notes(C,3*one_beat),Notes(Bb,half_beat),Notes(G/oct1,half_beat),Notes(G/oct1,4*one_beat)]
+line7=[Notes(C,3*one_beat,2,0.05,freq_mod),Notes(Bb,half_beat,2,h/3),Notes(G/oct1,half_beat,2,h/3),Notes(G/oct1,4*one_beat,2,h/3,freq_mod)]
 % 16 & 17 & 18
-line8=[Notes(F/oct1,1.5*one_beat),Notes(G/oct1,half_beat),Notes(D/oct1,1.5*one_beat),Notes(Eb/oct1,half_beat),...
-    Notes(C/oct1,8*one_beat)]
+line8=[Notes(F/oct1,1.5*one_beat,2,h/3),Notes(G/oct1,half_beat,2,h/3),Notes(D/oct1,1.5*one_beat,2,h/3),Notes(Eb/oct1,half_beat,2,h/3),...
+    Notes(C/oct1,8*one_beat,2,h/3,freq_mod)]
 % High part
 % 19 & 20
 line9_octhigher=[Notes(C*oct1,1.5*one_beat),Notes(Eb*oct1,half_beat),Notes(F*oct1,1.5*one_beat),Notes(G*oct1,half_beat),...
-    Notes(C*oct1,4*one_beat)]
+    Notes(C*oct1,4*one_beat,2,h*2,freq_mod)]
 line9_octlower=[Notes(C,1.5*one_beat),Notes(Eb,half_beat),Notes(F,1.5*one_beat),Notes(G,half_beat),...
-    Notes(C,4*one_beat)]
+    Notes(C,4*one_beat,h*2,freq_mod)]
 line9=line9_octhigher+line9_octlower
 % 21 & 22
 line10_octhigher=[Notes(C*oct1,1.5*one_beat),Notes(Eb*oct1,half_beat),Notes(F*oct1,1.5*one_beat),Notes(Bb*oct2,half_beat),...
-    Notes(G*oct1,3*one_beat),Notes(G*oct1,half_beat),Notes(Bb*oct2,half_beat)]
+    Notes(G*oct1,3*one_beat,h,freq_mod),Notes(G*oct1,half_beat),Notes(Bb*oct2,half_beat)]
 line10_octlower=[Notes(C,1.5*one_beat),Notes(Eb,half_beat),Notes(F,1.5*one_beat),Notes(Bb*oct1,half_beat),...
-    Notes(G,3*one_beat),Notes(G,half_beat),Notes(Bb*oct1,half_beat)]
+    Notes(G,3*one_beat,h,freq_mod),Notes(G,half_beat),Notes(Bb*oct1,half_beat)]
 line10=line10_octhigher + line10_octlower
 
 % 23 & 24
-line11=[Notes(C*oct1,3*one_beat),Notes(Bb*oct1,half_beat),Notes(G,half_beat),Notes(G,4*one_beat)];
+line11=[Notes(C*oct1,3*one_beat,0),Notes(Bb*oct1,half_beat),Notes(G,half_beat),Notes(G,4*one_beat)];
 
 %25 & 26 & 27
-line12=[Notes(F,1.5*one_beat),Notes(G,half_beat),Notes(D,1.5*one_beat),Notes(Eb,half_beat),Notes(G,8*one_beat)+Notes(C,8*one_beat)+Notes(C*oct1,8*one_beat)]
+line12=[Notes(F,1.5*one_beat),Notes(G,half_beat),Notes(D,1.5*one_beat),Notes(Eb,half_beat),Notes(G,8*one_beat,0)+Notes(C,8*one_beat,0)+Notes(C*oct1,8*one_beat,0)]
 
 %no longer theme
 
@@ -82,7 +83,7 @@ line13=[Notes(G/oct1,two_beats),Notes(Eb,two_beats),Notes(D,one_beat),Notes(C,on
     Notes(D,two_beats)+Notes(F/oct1,two_beats),Notes(C,6*one_beat)+Notes(F/oct1,6*one_beat), ...%44&45
     ]
 %back to theme
-line14=[Notes(C/oct1,one_beat*8)]
+line14=[Notes(C/oct1,one_beat*8,0,0.9,freq_mod)]
 lowtheme=[line5,line6,line7,line8,line14]
 %soundsc([line15,line16,line17,line18,line19,line20,line21,lowtheme])
 
@@ -90,7 +91,7 @@ lowtheme=[line5,line6,line7,line8,line14]
 %% Left hand 
 %10
 lline5_1=[Notes(C/oct2,half_beat),Notes(G/oct2,half_beat), Notes(C/oct1,half_beat),Notes(G/oct2,half_beat),...
-    Notes(Eb/oct1,half_beat),Notes(G/oct2,half_beat),Notes(C/oct1,half_beat),Notes(G/oct2,half_beat)]
+    Notes(Eb/oct1,half_beat,-4),Notes(G/oct2,half_beat,-4),Notes(C/oct1,half_beat,-4),Notes(G/oct2,half_beat,-4)]
 %11
 lline5_2=[Notes(Ab/oct2, half_beat),Notes(Eb/oct2, half_beat),Notes(Ab/oct1, half_beat),Notes(Eb/oct2,half_beat),...
     Notes(C/oct1,half_beat),Notes(Eb/oct2,half_beat),Notes(Ab/oct1,half_beat),Notes(Eb/oct2, half_beat)];
