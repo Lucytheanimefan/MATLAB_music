@@ -81,22 +81,9 @@ line13=[Notes(G/oct1,two_beats),Notes(Eb,two_beats),Notes(D,one_beat),Notes(C,on
     Notes(Ab,two_beats)+Notes(C,two_beats),Notes(C,one_beat)+Notes(Eb,one_beat),Notes(Bb,one_beat)+Notes(D,one_beat),...%43
     Notes(D,two_beats)+Notes(F/oct1,two_beats),Notes(C,6*one_beat)+Notes(F/oct1,6*one_beat), ...%44&45
     ]
-line14=[Notes(D,one_beat)+Notes(Bb,one_beat),Notes(C,one_beat)+Notes(F/oct1,one_beat),Notes(Bb,two_beats)+Notes(G/oct1,two_beats)]
-line15=[Notes(Ab,one_beat)+Notes(C,one_beat),Notes(Bb,one_beat)+Notes(D,one_beat),Notes(C,two_beats)+Notes(Eb,two_beats)]
-line16=[Notes(Eb/oct1,one_beat)+Notes(G/oct1,one_beat),Notes(F/oct1,one_beat)+Notes(Ab,one_beat),Notes(G/oct1,two_beats)+Notes(Bb,two_beats)]
-%40
-line17=[Notes(C/oct1,two_beats)+Notes(F/oct1,two_beats),Notes(F/oct1,two_beats)+Notes(C,two_beats)]
-%41
-line18=[Notes(Eb,one_beat)+Notes(G/oct1,one_beat),Notes(D,one_beat)+Notes(G/oct1,one_beat),Notes(G/oct1,two_beats)+Notes(C,two_beats)]
-%42
-line19=[Notes(D,two_beats)+Notes(Bb,two_beats),Notes(Bb,two_beats)+Notes(F/oct1,two_beats)]
-%43
-line20=[Notes(Ab,two_beats)+Notes(C,two_beats),Notes(C,one_beat)+Notes(Eb,one_beat),Notes(Bb,one_beat)+Notes(D,one_beat)]
-%44
-line21=[Notes(D,two_beats)+Notes(F/oct1,two_beats),Notes(C,6*one_beat)+Notes(F/oct1,6*one_beat)]
-
 %back to theme
-lowtheme=[line5,line6,line7,line8]
+line14=[Notes(C/oct1,one_beat*8)]
+lowtheme=[line5,line6,line7,line8,line14]
 %soundsc([line15,line16,line17,line18,line19,line20,line21,lowtheme])
 
 
@@ -169,9 +156,25 @@ lline13_12 = [Notes(C/oct2,half_beat),Notes(G/oct2,half_beat), Notes(C/oct1,half
 % 28-45
 lline13 = [lline13_1, lline13_2, lline13_3, lline13_3, lline13_4, lline13_5, lline13_6, lline13_7,lline13_8, lline13_9,...
     lline13_10, lline13_11, lline13_12] 
+%46-end
+%46
+lline14_1=[Notes(C/oct2,4*one_beat)+Notes(Eb/oct1,one_beat*4)+Notes(G/oct1, one_beat*4)] % should be legato kind of, not chord
+%47
+lline14_2=[Notes(Ab/oct1,one_beat*2)+Notes(Eb/oct1,one_beat*2)+Notes(C/oct2,one_beat*2)+Notes(Ab/oct1,one_beat*2),...
+    Notes(G/oct2,one_beat),Notes(Bb/oct2,one_beat)]
+%48
+lline14_3=[Notes(Bb/oct1,one_beat*4)+Notes(F/oct2,one_beat*4)+Notes(D/oct2,one_beat*4)+Notes(Bb/oct2,one_beat*4)]
+%49
+lline14_4=[Notes(Eb/(oct2),half_beat),Notes(G/oct2,half_beat),Notes(Bb/oct1,half_beat),Notes(Eb/oct1,half_beat),...
+    Notes(G/oct1,2*one_beat)]
+%50 & 51 & 52 & 53= 11 & 10 & 12 & 11
+lline14_5 = [lline5_2,lline5_1,lline6_1,lline5_2,lline5_2,lline5_1,...
+    Notes(C/oct2,4*one_beat)+Notes(G/oct2,4*one_beat)+Notes(C/oct1,4*one_beat)+Notes(Eb/oct1,4*one_beat)]
+lline14=[lline14_1,lline14_2,lline14_3,lline14_4,lline14_5]
+
 %% Call the lines
-music_vector=[lline5+line5,lline6+line6, lline7+line7, lline8 + line8, lline9 + line9, lline10 + line10, lline11 + line11,...
-    lline12+ line12, line13 + lline13]
-soundsc(lline13 + line13);
+music_vector=[line1,line2,line3,line4,lline5+line5,lline6+line6, lline7+line7, lline8 + line8, lline9 + line9, lline10 + line10, lline11 + line11,...
+    lline12+ line12, line13 + lline13, lowtheme + lline14]
+soundsc(music_vector);
 %soundsc([line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11,line12,line13,line14,...
 %    line15,line16,line17,line18,line19,line20,line21,lowtheme]);
