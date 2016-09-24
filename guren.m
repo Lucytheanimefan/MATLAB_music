@@ -1,8 +1,6 @@
-%  Fs=8000;
-%  Ts=1/Fs;
-%  t=[0:Ts:0.3];
- low_G = 220*2^(10/12);
- Ab=2*220*2^(-1/12)
+% Notes
+low_G = 220*2^(10/12);
+Ab=2*220*2^(-1/12)
 A = 2*220*2^(0/12);
 Bb = 2*220*2^(1/12);
 B = 2*220*2^(2/12);
@@ -15,21 +13,22 @@ F = 2*220*2^(8/12);
 Gb = 2*220*2^(9/12);
 G = 2*220*2^(10/12);
 
+%constants
 oct1=2;
 oct2=2*2;
-one_beat=0.7;
+one_beat=1;
 quarter_beat=0.25*one_beat;
 half_beat=0.5*one_beat;
 two_beats=2*one_beat;
 
 h=0.3 %harmonic value
-freq_mod=-7 %frequency modulation
+freq_mod=-6 %frequency modulation
 %% Right hand 
 line1=[Notes(C,1.5*one_beat),Notes(Eb,half_beat),Notes(F,1.5*one_beat), Notes(G,half_beat), Notes(C,4*one_beat)];
-line2=[Notes(C,1.5*one_beat),Notes(Eb,half_beat),Notes(F,1.5*one_beat),Notes(oct1*Bb, half_beat,2,h),...
+line2=[Notes(C,1.5*one_beat),Notes(Eb,half_beat),Notes(F,1.5*one_beat),Notes(oct1*Bb, half_beat,0,1.1*0.9, freq_mod,2),...
     Notes(G,3*one_beat)]
-line3=[Notes(G,half_beat,2,h),Notes(oct1*Bb,half_beat,2,h),Notes(oct1*C,3*one_beat,2,h*0.5,freq_mod),Notes(oct1*Bb,half_beat,2,h),...
-    Notes(G,half_beat,2,h),Notes(G,4*one_beat,0.5,h*1.1)]
+line3=[Notes(G,half_beat,2,h),Notes(oct1*Bb,half_beat,2,h),Notes(oct1*C,3*one_beat,0,h*0.9,freq_mod,2),Notes(oct1*Bb,half_beat,2,h),...
+    Notes(G,half_beat,2,h),Notes(G,4*one_beat,0.5,h,freq_mod,2)]
 line4=[Notes(F,1.5*one_beat,2,1.1*h),Notes(G,half_beat,2,1.2*h),Notes(D,1.5*one_beat,2,1.5*h),Notes(Eb,half_beat,2,2*h),Notes(C,8*one_beat)]
 
 %% lower part right hand, left hand starts here
@@ -67,20 +66,22 @@ line12=[Notes(F,1.5*one_beat),Notes(G,half_beat),Notes(D,1.5*one_beat),Notes(Eb,
 %no longer theme
 
 % 28 - 36
-line13=[Notes(G/oct1,two_beats),Notes(Eb,two_beats),Notes(D,one_beat),Notes(C,one_beat),Notes(Bb,two_beats),... %28 & 29
-    Notes(C,one_beat),Notes(D,one_beat),Notes(Eb,two_beats),... %30
-    Notes(G/oct1,one_beat),Notes(Ab,one_beat),Notes(Bb,two_beats),... %31
-    Notes(F/oct1,two_beats),Notes(C,two_beats),Notes(Eb,one_beat),Notes(D,one_beat),Notes(C,two_beats),...%32 & 33
-    Notes(D,two_beats),Notes(Bb,two_beats),Notes(C,two_beats),Notes(Eb,one_beat),Notes(D,one_beat),... %34 & 35
-    Notes(G,two_beats)+Notes(Eb/oct1,two_beats),Notes(C,two_beats)+Notes(Eb,two_beats),... %36
-    Notes(D,one_beat)+Notes(Bb,one_beat),Notes(C,one_beat)+Notes(F/oct1,one_beat),Notes(Bb,two_beats)+Notes(G/oct1,two_beats),... %37
-    Notes(Ab,one_beat)+Notes(C,one_beat),Notes(Bb,one_beat)+Notes(D,one_beat),Notes(C,two_beats)+Notes(Eb,two_beats),...%38
-    Notes(Eb/oct1,one_beat)+Notes(G/oct1,one_beat),Notes(F/oct1,one_beat)+Notes(Ab,one_beat),Notes(G/oct1,two_beats)+Notes(Bb,two_beats),...%39
-    Notes(C/oct1,two_beats)+Notes(F/oct1,two_beats),Notes(F/oct1,two_beats)+Notes(C,two_beats),...%40
-    Notes(Eb,one_beat)+Notes(G/oct1,one_beat),Notes(D,one_beat)+Notes(G/oct1,one_beat),Notes(G/oct1,two_beats)+Notes(C,two_beats),...%42
-    Notes(D,two_beats)+Notes(Bb,two_beats),Notes(Bb,two_beats)+Notes(F/oct1,two_beats),...%42
-    Notes(Ab,two_beats)+Notes(C,two_beats),Notes(C,one_beat)+Notes(Eb,one_beat),Notes(Bb,one_beat)+Notes(D,one_beat),...%43
-    Notes(D,two_beats)+Notes(F/oct1,two_beats),Notes(C,6*one_beat)+Notes(F/oct1,6*one_beat), ...%44&45
+line13=[Notes(G/oct1,two_beats,'def','def',freq_mod),Notes(Eb,two_beats,'def','def',freq_mod),+...
+    Notes(D,one_beat,'def','def',freq_mod),Notes(C,one_beat,'def','def',freq_mod),Notes(Bb,two_beats,'def','def',freq_mod),... %28 & 29
+    Notes(C,one_beat,'def','def',freq_mod),Notes(D,one_beat,'def','def',freq_mod),Notes(Eb,two_beats,'def','def',freq_mod),... %30
+    Notes(G/oct1,one_beat,'def','def',freq_mod),Notes(Ab,one_beat,'def','def',freq_mod),Notes(Bb,two_beats,'def','def',freq_mod),... %31
+    Notes(F/oct1,two_beats,'def','def',freq_mod),Notes(C,two_beats,'def','def',freq_mod),Notes(Eb,one_beat,'def','def',freq_mod),...
+    Notes(D,one_beat,'def','def',freq_mod),Notes(C,two_beats,'def','def',freq_mod),...%32 & 33
+    Notes(D,two_beats,'def','def',freq_mod),Notes(Bb,two_beats,'def','def',freq_mod),Notes(C,two_beats,'def','def',freq_mod),Notes(Eb,one_beat,'def','def',freq_mod),Notes(D,one_beat,'def','def',freq_mod),... %34 & 35
+    Notes(G,two_beats,'def','def',freq_mod)+Notes(Eb/oct1,two_beats,'def','def',freq_mod),Notes(C,two_beats,'def','def',freq_mod)+Notes(Eb,two_beats,'def','def',freq_mod),... %36
+    Notes(D,one_beat,'def','def',freq_mod)+Notes(Bb,one_beat,'def','def',freq_mod),Notes(C,one_beat,'def','def',freq_mod)+Notes(F/oct1,one_beat,'def','def',freq_mod),Notes(Bb,two_beats,'def','def',freq_mod)+Notes(G/oct1,two_beats,'def','def',freq_mod),... %37
+    Notes(Ab,one_beat,'def','def',freq_mod)+Notes(C,one_beat,'def','def',freq_mod),Notes(Bb,one_beat,'def','def',freq_mod)+Notes(D,one_beat,'def','def',freq_mod),Notes(C,two_beats,'def','def',freq_mod)+Notes(Eb,two_beats,'def','def',freq_mod),...%38
+    Notes(Eb/oct1,one_beat,'def','def',freq_mod)+Notes(G/oct1,one_beat,'def','def',freq_mod),Notes(F/oct1,one_beat,'def','def',freq_mod)+Notes(Ab,one_beat,'def','def',freq_mod),Notes(G/oct1,two_beats)+Notes(Bb,two_beats,'def','def',freq_mod),...%39
+    Notes(C/oct1,two_beats,'def','def',freq_mod)+Notes(F/oct1,two_beats,'def','def',freq_mod),Notes(F/oct1,two_beats,'def','def',freq_mod)+Notes(C,two_beats,'def','def',freq_mod),...%40
+    Notes(Eb,one_beat,'def','def',freq_mod)+Notes(G/oct1,one_beat,'def','def',freq_mod),Notes(D,one_beat,'def','def',freq_mod)+Notes(G/oct1,one_beat),Notes(G/oct1,two_beats,'def','def',freq_mod)+Notes(C,two_beats,'def','def',freq_mod),...%42
+    Notes(D,two_beats,'def','def',freq_mod)+Notes(Bb,two_beats,'def','def',freq_mod),Notes(Bb,two_beats,'def','def',freq_mod)+Notes(F/oct1,two_beats,'def','def',freq_mod),...%42
+    Notes(Ab,two_beats,'def','def',freq_mod)+Notes(C,two_beats,'def','def',freq_mod),Notes(C,one_beat,'def','def',freq_mod)+Notes(Eb,one_beat,'def','def',freq_mod),Notes(Bb,one_beat,'def','def',freq_mod)+Notes(D,one_beat,'def','def',freq_mod),...%43
+    Notes(D,two_beats,'def','def',freq_mod)+Notes(F/oct1,two_beats,'def','def',freq_mod),Notes(C,6*one_beat,'def','def',freq_mod)+Notes(F/oct1,6*one_beat,'def','def',freq_mod), ...%44&45
     ]
 %back to theme
 line14=[Notes(C/oct1,one_beat*8,0,0.9,freq_mod)]
@@ -170,12 +171,13 @@ lline14_4=[Notes(Eb/(oct2),half_beat),Notes(G/oct2,half_beat),Notes(Bb/oct1,half
     Notes(G/oct1,2*one_beat)]
 %50 & 51 & 52 & 53= 11 & 10 & 12 & 11
 lline14_5 = [lline5_2,lline5_1,lline6_1,lline5_2,lline5_2,lline5_1,...
-    Notes(C/oct2,4*one_beat)+Notes(G/oct2,4*one_beat)+Notes(C/oct1,4*one_beat)+Notes(Eb/oct1,4*one_beat)]
+    Notes(C/oct2,4*one_beat)+Notes(G/oct2,4*one_beat)+Notes(C/oct1,4*one_beat)+Notes(Eb/oct1,4*one_beat,3)]
 lline14=[lline14_1,lline14_2,lline14_3,lline14_4,lline14_5]
 
 %% Call the lines
 music_vector=[line1,line2,line3,line4,lline5+line5,lline6+line6, lline7+line7, lline8 + line8, lline9 + line9, lline10 + line10, lline11 + line11,...
     lline12+ line12, line13 + lline13, lowtheme + lline14]
 soundsc(music_vector);
-%soundsc([line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11,line12,line13,line14,...
-%    line15,line16,line17,line18,line19,line20,line21,lowtheme]);
+
+songscaled = music_vector/(max(abs(music_vector)))
+audiowrite('guren.wav',songscaled,8000)
