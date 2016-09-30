@@ -21,16 +21,32 @@ two_beats=2*one_beat;
 
 short_rest=Notes(0,0.009); %delete these later!
 
+overlap=2;
+num_notes = 21
+new_length=224*one_beat - (num_notes-1)*overlap;
+
 h=0.3
 freq_mod=-7
-line1=[Notes(C,1.5*one_beat),Notes(Eb,half_beat),Notes(F,1.5*one_beat), Notes(G,half_beat), Notes(C,4*one_beat)];
-line2=[Notes(C,1.5*one_beat),Notes(Eb,half_beat),Notes(F,1.5*one_beat),Notes(oct1*Bb, half_beat,0,1.1*0.9, freq_mod,2),...
-    Notes(G,3*one_beat)]
-line3=[Notes(G,half_beat,2,h),Notes(oct1*Bb,half_beat,2,h),Notes(oct1*C,3*one_beat,0,h*0.9,freq_mod,2),Notes(oct1*Bb,half_beat,2,h),...
-    Notes(G,half_beat,2,h),Notes(G,4*one_beat,0.5,h,freq_mod,2)]
-line4=[Notes(F,1.5*one_beat,2,1.1*h),Notes(G,half_beat,2,1.2*h),Notes(D,1.5*one_beat,2,1.5*h),Notes(Eb,half_beat,2,2*h),Notes(C,8*one_beat)]
+lineDelay1=[delayNotes(C,1.5*one_beat),delayNotes(Eb,half_beat),delayNotes(F,1.5*one_beat), delayNotes(G,half_beat), delayNotes(C,4*one_beat)];
+lineDelay2=[delayNotes(C,1.5*one_beat),delayNotes(Eb,half_beat),delayNotes(F,1.5*one_beat),delayNotes(oct1*Bb, half_beat,0,1.1*0.9, freq_mod,2),...
+    delayNotes(G,3*one_beat)]
+lineDelay3=[delayNotes(G,half_beat,2,h),delayNotes(oct1*Bb,half_beat,2,h),delayNotes(oct1*C,3*one_beat,0,h*0.9,freq_mod,2),delayNotes(oct1*Bb,half_beat,2,h),...
+    delayNotes(G,half_beat,2,h),delayNotes(G,4*one_beat,0.5,h,freq_mod,2)]
+lineDelay4=[delayNotes(F,1.5*one_beat,2,1.1*h),delayNotes(G,half_beat,2,1.2*h),delayNotes(D,1.5*one_beat,2,1.5*h),delayNotes(Eb,half_beat,2,2*h),delayNotes(C,8*one_beat)]
 
-
-soundsc([line1,line2,line3]);
+lline5_1=[delayNotes(C/oct2,half_beat,left_vol_var),delayNotes(G/oct2,half_beat,left_vol_var), delayNotes(C/oct1,half_beat,left_vol_var),delayNotes(G/oct2,half_beat,left_vol_var),...
+    delayNotes(Eb/oct1,half_beat,-4,left_vol_var),delayNotes(G/oct2,half_beat,-4,left_vol_var),delayNotes(C/oct1,half_beat,-4,left_vol_var),delayNotes(G/oct2,half_beat,-4,left_vol_var)]
+%11
+lline5_2=[delayNotes(Ab/oct2, half_beat),delayNotes(Eb/oct2, half_beat),delayNotes(Ab/oct1, half_beat),delayNotes(Eb/oct2,half_beat),...
+    delayNotes(C/oct1,half_beat),delayNotes(Eb/oct2,half_beat),delayNotes(Ab/oct1,half_beat),delayNotes(Eb/oct2, half_beat)];
+%10 & l1
+lline5=[lline5_1,lline5_2]
+%12 
+lline6_1=[delayNotes(Bb/oct2,half_beat),delayNotes(F/oct2,half_beat),delayNotes(Bb/oct1, half_beat),delayNotes(F/oct2,half_beat),...
+    delayNotes(D/oct1,half_beat),delayNotes(F/oct2, half_beat),delayNotes(Bb/oct1,half_beat),delayNotes(F/oct2,half_beat)];
+soundsc([lline5,lline6_1])
+    
+%lineDelay3,lineDelay4]);
+%analyze('guren.wav')
 
 
