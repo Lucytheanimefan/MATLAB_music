@@ -6,7 +6,7 @@ if nargin<5 || strcmp(freq_mod,'def')
     freq_mod=-4
 end
 if nargin<4 || strcmp(harmonic,'def')
-    harmonic = 5
+    harmonic = 20
 end
 if nargin<3||strcmp(volume_var,'def')
     volume_var = 2
@@ -23,9 +23,9 @@ y_octave = overtone*((exp(-volume_var*(t-delay))).*cos((2*pi*frequency*2*(t-dela
 
 sig = y_octave + y_norm
 A = linspace(0, 0.6, (length(sig)*0.7)); %rise of signal
-D = linspace(0.6, 0.5,(length(sig)*0.09)); %drop of signal
-S = linspace(0.5, 0.5,(length(sig)*0.09)); %delay of signal
-R = linspace(0.5, 0,(length(sig)*0.09)); %drop of signal
+D = linspace(0.6, 0.5,(length(sig)*0.1)); %drop of signal
+S = linspace(0.5, 0.5,(length(sig)*0.1)); %delay of signal
+R = linspace(0.5, 0,(length(sig)*0.1)); %drop of signal
 
 ADSR = [A D S R] ; %make a matrix
 

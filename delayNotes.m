@@ -6,7 +6,7 @@ if nargin<5 || strcmp(freq_mod,'def')
     freq_mod=-4
 end
 if nargin<4 || strcmp(harmonic,'def')
-    harmonic = 5
+    harmonic = 10
 end
 if nargin<3||strcmp(volume_var,'def')
     volume_var = 2

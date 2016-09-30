@@ -26,7 +26,8 @@ two_beats=2*one_beat;
 h=0.3 %harmonic value
 freq_mod=-6 %frequency modulation
 
-long_rest = Notes(0,16*one_beat);
+long_rest = Notes(0,16*one_beat); %this is how long it takes for the second melody to kick in. 
+
 %% Right hand 
 line1=[Notes(C,1.5*one_beat),Notes(Eb,half_beat),Notes(F,1.5*one_beat), Notes(G,half_beat), Notes(C,4*one_beat)];
 line2=[Notes(C,1.5*one_beat),Notes(Eb,half_beat),Notes(F,1.5*one_beat),Notes(oct1*Bb, half_beat,0,1.1*0.9, freq_mod,2),...
@@ -251,13 +252,17 @@ lowtheme_wRest=[lineDelay5,lineDelay6,lineDelay7,lineDelay8,lineDelay14,long_res
 
 
 %% Call the lines
-music_vector=[line1,line2,line3,line4,lline5+line5,lline6+line6, lline7+line7, lline8 + line8,...
+music_vector_first=[line1,line2,line3,line4,lline5+line5,lline6+line6, lline7+line7, lline8 + line8,...
     lline9 + line9, lline10 + line10, lline11 + line11,...
     lline12+ line12, line13 + lline13, lowtheme_wRest + lline14_wRest]
 
+% The same melody as above, but without the left hand part. 
+% Creates the effect of a staggered melody 
 music_vector_delayed=[long_rest,lineDelay1,lineDelay2,lineDelay3,lineDelay4,lineDelay5,lineDelay6, lineDelay7, lineDelay8,...
    lineDelay9, lineDelay10, lineDelay11,...
    lineDelay12, lineDelay13, lowtheme]
+
+music_vector = music_vector_first + music_vector_delayed
 soundsc(music_vector+music_vector_delayed);
 
 songscaled = music_vector/(max(abs(music_vector)))
