@@ -44,7 +44,8 @@ lline5=[lline5_1,lline5_2]
 %12 
 lline6_1=[delayNotes(Bb/oct2,half_beat),delayNotes(F/oct2,half_beat),delayNotes(Bb/oct1, half_beat),delayNotes(F/oct2,half_beat),...
     delayNotes(D/oct1,half_beat),delayNotes(F/oct2, half_beat),delayNotes(Bb/oct1,half_beat),delayNotes(F/oct2,half_beat)];
-soundsc([lline5,lline6_1])
+soundsc([lineDelay1,lineDelay2,lineDelay3,lineDelay4])
+%soundsc([lline5,lline6_1])
     
 %lineDelay3,lineDelay4]);
 %analyze('guren.wav')

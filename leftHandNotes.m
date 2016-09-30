@@ -22,16 +22,16 @@ y_octave = overtone*((exp(-volume_var*(t-delay))).*cos((2*pi*frequency*2*(t-dela
     + (1/harmonic)*cos((2*pi*frequency*2*(t-delay))+(cos(2*pi*freq_mod*(t-delay))))); 
 
 sig = y_octave + y_norm
-A = linspace(0, 0.6, (length(sig)*0.7)); %rise 20% of signal
-D = linspace(0.6, 0.5,(length(sig)*0.09)); %drop of 5% of signal
-S = linspace(0.5, 0.5,(length(sig)*0.09)); %delay of 40% of signal
-R = linspace(0.5, 0,(length(sig)*0.09)); %drop of 35% of signal
+A = linspace(0, 0.6, (length(sig)*0.7)); %rise of signal
+D = linspace(0.6, 0.5,(length(sig)*0.09)); %drop of signal
+S = linspace(0.5, 0.5,(length(sig)*0.09)); %delay of signal
+R = linspace(0.5, 0,(length(sig)*0.09)); %drop of signal
 
 ADSR = [A D S R] ; %make a matrix
 
 dif = length(sig) - length(ADSR); %find out the difference
 
-x = cat(2, ADSR, zeros(1,dif));
+x = cat(2, ADSR, zeros(1,dif)); % concatenates the horizontal DSK with the difference of ADSR and the signal
 
 y = sig .* x
 
